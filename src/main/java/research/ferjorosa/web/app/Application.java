@@ -3,6 +3,8 @@ package research.ferjorosa.web.app;
 import research.ferjorosa.web.app.staticLearn.StaticLearnController;
 import research.ferjorosa.web.app.localData.LocalDataController;
 import research.ferjorosa.web.app.streamLearn.StreamWebSocketHandler;
+import research.ferjorosa.web.app.testWs.testWsController;
+import research.ferjorosa.web.app.testWs.testWsHandler;
 
 import static spark.Spark.*;
 
@@ -19,10 +21,18 @@ public class Application {
         //staticFiles.location("/public");
 
         webSocket("/stream", StreamWebSocketHandler.class);
+        webSocket("/testWs", testWsHandler.class);
         //init(); // Needed if you don't define any HTTP routes after your WebSocket routes
 
-        get("/listLocalFiles", LocalDataController.listLocalFiles);
-        post("/learn/flatLTM", StaticLearnController.learnFlatLtmABI);
+        get("/test",                testWsController.test);
+        get("/lol", (req,response)-> "LOL");
+
+
+        get("/listLocalFiles",          LocalDataController.listLocalFiles);
+        post("/learn/flatLTM",          StaticLearnController.learnFlatLtmABI);
+        get("/testMessage/:id",         testWsController.testMessage);
+        get("/testMessageAll",          testWsController.testMessageAll);
+        get("/listActiveConnections",   testWsController.listActiveConnections);
 
     }
 }

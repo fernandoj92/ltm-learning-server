@@ -1,4 +1,4 @@
-package research.ferjorosa.web.app.streamLearn;
+package research.ferjorosa.web.app.testWs;
 
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketClose;
@@ -6,32 +6,26 @@ import org.eclipse.jetty.websocket.api.annotations.OnWebSocketConnect;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
 import org.eclipse.jetty.websocket.api.annotations.WebSocket;
 
-import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.UUID;
 
 /**
- * Created by Fernando on 02/09/2016.
+ * Created by fernando on 15/09/16.
  */
 @WebSocket
-public class StreamWebSocketHandler {
-
-    // Store sessions if you want to, for example, broadcast a message to all users
-    private static final Queue<Session> sessions = new ConcurrentLinkedQueue<>();
+public class testWsHandler {
 
     @OnWebSocketConnect
     public void onConnect(Session session) throws Exception {
-        sessions.add(session);
+        testWsManager.getMapSessions().put(session, UUID.randomUUID());
     }
 
     @OnWebSocketClose
     public void onClose(Session session, int statusCode, String reason) {
-        sessions.remove(session);
+        testWsManager.getMapSessions().remove(session);
     }
 
     @OnWebSocketMessage
     public void onMessage(Session session, String message) {
         // We do nothing because the purpose is one-directional, from the server to the client
     }
-
-    // Metodo para enviar mensajes a todos las sesiones conectadas?
 }
