@@ -10,7 +10,7 @@
     <name>Ltm Learning Server</name>
     <version>0.1.0</version> <!-- ltm-learning-server version -->
 
-    <packaging>pom</packaging>
+    <packaging>pom</packaging> <!-- TODO: Cambiarlo -->
 
     <url>https://github.com/fernandoj92/ltm-learning-server</url>
 
@@ -53,20 +53,24 @@
 
     <dependencies>
 
-        <!-- AMIDST dependency -->
-        <dependency>
-            <groupId>eu.amidst</groupId>
-            <artifactId>module-all</artifactId>
-            <version>0.5.2</version>
-            <scope>compile</scope>
-        </dependency>
+        <!--
 
-        <!-- LTM Learning dependency -->
+        Es importante definir las dependencias del servidor y del logger por encima
+        que las dependencias de AMIDST, ya que poseen sus propias versiones de javax.servlet
+        y del slf4j que se encuentran anticuadas y que impiden el correcto funcionamiento
+
+        De esta forma, Maven sobrescribe dichas dependencias, en este caso con las dependencias
+        mas actuales
+
+        NOTA: No se se en el caso de que se utilice el modulo dependiente de dichas dpenecnias
+        podria ocurrir algun error de funcionamiento.
+        -->
+
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
         <dependency>
-            <groupId>res.ferjorosa</groupId>
-            <artifactId>ltm-learning</artifactId>
-            <version>0.1.0</version>
-            <scope>compile</scope>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.21</version>
         </dependency>
 
         <!-- Web Server dependency -->
@@ -84,11 +88,20 @@
             <version>2.7</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+        <!-- AMIDST dependency -->
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.7.21</version>
+            <groupId>eu.amidst</groupId>
+            <artifactId>module-all</artifactId>
+            <version>0.5.2</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- LTM Learning dependency -->
+        <dependency>
+            <groupId>res.ferjorosa</groupId>
+            <artifactId>ltm-learning</artifactId>
+            <version>0.1.0</version>
+            <scope>compile</scope>
         </dependency>
 
     </dependencies>
