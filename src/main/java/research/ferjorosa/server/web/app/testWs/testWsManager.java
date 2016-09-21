@@ -15,11 +15,13 @@ public class testWsManager {
     static final Map<Session, UUID> sessionUuidMap = new ConcurrentHashMap<>();
     static final Map<UUID, Session> uuidSessionMap = new ConcurrentHashMap<>();
 
-    static Map<Session, UUID> getMapSessions(){
-        return sessionUuidMap;
+    static Set<Session> getSessions(){
+        assert(sessionUuidMap.keySet().equals(uuidSessionMap.values()));
+        return sessionUuidMap.keySet();
     }
 
     static Set<UUID> getIDs(){
+        assert(uuidSessionMap.keySet().equals(sessionUuidMap.values()));
         return new HashSet<>(sessionUuidMap.values());
     }
 

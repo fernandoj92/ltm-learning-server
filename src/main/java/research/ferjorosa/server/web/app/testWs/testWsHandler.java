@@ -16,16 +16,22 @@ public class testWsHandler {
 
     @OnWebSocketConnect
     public void onConnect(Session session) throws Exception {
-        testWsManager.getMapSessions().put(session, UUID.randomUUID());
+        UUID id = UUID.randomUUID();
+        testWsManager.sessionUuidMap.put(session, id);
+        testWsManager.uuidSessionMap.put(id, session);
     }
 
     @OnWebSocketClose
     public void onClose(Session session, int statusCode, String reason) {
-        testWsManager.getMapSessions().remove(session);
+        UUID id = testWsManager.sessionUuidMap.get(session);
+        testWsManager.uuidSessionMap.remove(id);
+        testWsManager.sessionUuidMap.remove(session);
+
     }
 
     @OnWebSocketMessage
     public void onMessage(Session session, String message) {
         // We do nothing because the purpose is one-directional, from the server to the client
+        System.out.println("msg: " + message + ", from "+ testWsManager.sessionUuidMap.get(session));
     }
 }
