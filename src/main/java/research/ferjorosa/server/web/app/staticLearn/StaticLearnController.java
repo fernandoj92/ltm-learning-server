@@ -1,4 +1,4 @@
-package research.ferjorosa.web.app.staticLearn;
+package research.ferjorosa.server.web.app.staticLearn;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
@@ -6,8 +6,8 @@ import eu.amidst.core.datastream.DataInstance;
 import eu.amidst.core.datastream.DataOnMemory;
 import eu.amidst.core.datastream.DataStream;
 import eu.amidst.core.learning.parametric.bayesian.SVB;
-import research.ferjorosa.web.app.localData.LocalDataService;
-import research.ferjorosa.web.app.staticLearn.parameters.ABIParameters;
+import research.ferjorosa.server.web.app.localData.LocalDataService;
+import research.ferjorosa.server.web.app.staticLearn.parameters.ABIParameters;
 import research.ferjorosa.core.learning.structural.ApproximateBIAlgorithm;
 import research.ferjorosa.core.learning.structural.ApproximateBIConfig;
 import research.ferjorosa.core.learning.structural.StructuralLearning;

@@ -1,4 +1,4 @@
-package research.ferjorosa.web.app.staticLearn.parameters;
+package research.ferjorosa.server.web.app.staticLearn.parameters;
 
 import research.ferjorosa.core.learning.structural.variables.FSSMeasures;
 

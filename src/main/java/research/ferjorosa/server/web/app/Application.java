@@ -1,10 +1,10 @@
-package research.ferjorosa.web.app;
+package research.ferjorosa.server.web.app;
 
-import research.ferjorosa.web.app.staticLearn.StaticLearnController;
-import research.ferjorosa.web.app.localData.LocalDataController;
-import research.ferjorosa.web.app.streamLearn.StreamWebSocketHandler;
-import research.ferjorosa.web.app.testWs.testWsController;
-import research.ferjorosa.web.app.testWs.testWsHandler;
+import research.ferjorosa.server.web.app.staticLearn.StaticLearnController;
+import research.ferjorosa.server.web.app.localData.LocalDataController;
+import research.ferjorosa.server.web.app.streamLearn.StreamWebSocketHandler;
+import research.ferjorosa.server.web.app.testWs.testWsController;
+import research.ferjorosa.server.web.app.testWs.testWsHandler;
 
 import static spark.Spark.*;
 

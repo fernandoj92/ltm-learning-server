@@ -1,4 +1,4 @@
-package research.ferjorosa.web.app.testWs;
+package research.ferjorosa.server.web.app.testWs;
 
 import org.apache.sling.commons.json.JSONObject;
 import spark.Request;

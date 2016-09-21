@@ -1,4 +1,4 @@
-package research.ferjorosa.web.app.localData;
+package research.ferjorosa.server.web.app.localData;
 
 import eu.amidst.core.datastream.DataInstance;
 import eu.amidst.core.datastream.DataStream;

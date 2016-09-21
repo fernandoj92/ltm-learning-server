@@ -1,4 +1,4 @@
-package research.ferjorosa.web.app.localData;
+package research.ferjorosa.server.web.app.localData;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

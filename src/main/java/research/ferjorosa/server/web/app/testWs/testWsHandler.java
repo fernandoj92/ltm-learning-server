@@ -1,4 +1,4 @@
-package research.ferjorosa.web.app.testWs;
+package research.ferjorosa.server.web.app.testWs;
 
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketClose;
