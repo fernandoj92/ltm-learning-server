@@ -1,4 +1,4 @@
-package research.ferjorosa.server.util.exportBN.format.json.cytoscape;
+package research.ferjorosa.server.export.fileFormat.json.cytoscape;
 
 import eu.amidst.core.models.BayesianNetwork;
 import eu.amidst.core.models.DAG;

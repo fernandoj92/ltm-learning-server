@@ -1,10 +1,10 @@
-package research.ferjorosa.server.util.exportBN.format;
+package research.ferjorosa.server.export.fileFormat;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import eu.amidst.core.models.BayesianNetwork;
-import research.ferjorosa.server.util.exportBN.format.json.cytoscape.CytoscapeJsonBN;
-import research.ferjorosa.server.util.exportBN.format.json.my.MyJsonBN;
+import research.ferjorosa.server.export.fileFormat.json.cytoscape.CytoscapeJsonBN;
+import research.ferjorosa.server.export.fileFormat.json.my.MyJsonBN;
 
 /**
  * Created by Fernando on 27/08/2016.
