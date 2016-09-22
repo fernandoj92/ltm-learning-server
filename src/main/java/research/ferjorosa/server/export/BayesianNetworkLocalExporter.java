@@ -1,4 +1,4 @@
-package research.ferjorosa.server.util.exportBN;
+package research.ferjorosa.server.export;
 
 import java.io.FileWriter;
 import java.io.IOException;
