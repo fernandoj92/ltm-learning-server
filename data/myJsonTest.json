@@ -1,0 +1,160 @@
+{
+  "dag": {
+    "nodes": [
+      {
+        "id": "0",
+        "name": "cloudy"
+      },
+      {
+        "id": "1",
+        "name": "sprinkler"
+      },
+      {
+        "id": "2",
+        "name": "rain"
+      },
+      {
+        "id": "3",
+        "name": "wetGrass"
+      }
+    ],
+    "edges": [
+      {
+        "source": "1",
+        "target": "0"
+      },
+      {
+        "source": "2",
+        "target": "0"
+      },
+      {
+        "source": "3",
+        "target": "1"
+      },
+      {
+        "source": "3",
+        "target": "2"
+      }
+    ]
+  },
+  "cpts": [
+    {
+      "label": "Multinomial",
+      "variableID": "0",
+      "parentIDs": [],
+      "rows": [
+        {
+          "parameterValues": {
+            "s1": 0.5,
+            "s2": 0.5
+          },
+          "parentValues": {}
+        }
+      ]
+    },
+    {
+      "label": "Multinomial|Multinomial",
+      "variableID": "1",
+      "parentIDs": [
+        "0"
+      ],
+      "rows": [
+        {
+          "parameterValues": {
+            "s1": 0.5,
+            "s2": 0.5
+          },
+          "parentValues": {
+            "0": 0.0
+          }
+        },
+        {
+          "parameterValues": {
+            "s1": 0.5,
+            "s2": 0.5
+          },
+          "parentValues": {
+            "0": 1.0
+          }
+        }
+      ]
+    },
+    {
+      "label": "Multinomial|Multinomial",
+      "variableID": "2",
+      "parentIDs": [
+        "0"
+      ],
+      "rows": [
+        {
+          "parameterValues": {
+            "s1": 0.5,
+            "s2": 0.5
+          },
+          "parentValues": {
+            "0": 0.0
+          }
+        },
+        {
+          "parameterValues": {
+            "s1": 0.5,
+            "s2": 0.5
+          },
+          "parentValues": {
+            "0": 1.0
+          }
+        }
+      ]
+    },
+    {
+      "label": "Multinomial|Multinomial",
+      "variableID": "3",
+      "parentIDs": [
+        "1",
+        "2"
+      ],
+      "rows": [
+        {
+          "parameterValues": {
+            "s1": 0.5,
+            "s2": 0.5
+          },
+          "parentValues": {
+            "1": 0.0,
+            "2": 0.0
+          }
+        },
+        {
+          "parameterValues": {
+            "s1": 0.5,
+            "s2": 0.5
+          },
+          "parentValues": {
+            "1": 1.0,
+            "2": 0.0
+          }
+        },
+        {
+          "parameterValues": {
+            "s1": 0.5,
+            "s2": 0.5
+          },
+          "parentValues": {
+            "1": 0.0,
+            "2": 1.0
+          }
+        },
+        {
+          "parameterValues": {
+            "s1": 0.5,
+            "s2": 0.5
+          },
+          "parentValues": {
+            "1": 1.0,
+            "2": 1.0
+          }
+        }
+      ]
+    }
+  ]
+}
