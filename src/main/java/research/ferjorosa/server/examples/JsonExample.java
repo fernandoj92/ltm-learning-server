@@ -33,7 +33,8 @@ public class JsonExample {
         // We print the json model
         String JsonBnModel = ConvertBN.toMyJson(bnModel,true);
         System.out.println(JsonBnModel);
-        BayesianNetworkLocalExporter.writeJsonFile(JsonBnModel, System.getProperty("user.dir") + "/data/myJsonTest.json");
+        BayesianNetworkLocalExporter
+                .writeJsonFile(JsonBnModel, System.getProperty("user.dir") + "/data/myJsonTest2.json");
 
     }
 

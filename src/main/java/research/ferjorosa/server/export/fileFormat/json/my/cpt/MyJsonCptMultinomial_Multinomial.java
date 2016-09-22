@@ -29,34 +29,34 @@ class MyJsonCptMultinomial_Multinomial extends AbstractJsonCPT {
         }
         // Rows
 
-        // Rows: Parent values
-        List<Map<String, Double>> parentValuesList = new ArrayList<>();
+        // Rows: Parent assignments
+        List<List<MyJsonCptParentAssignment>> RowParentAssignments = new ArrayList<>();
         for(int i=0;i<dist.getNumberOfParentAssignments();i++) {
             Assignment parentAssignment = MultinomialIndex.
                     getVariableAssignmentFromIndex(dist.getConditioningVariables(), i);
 
             Set<Variable> parents = parentAssignment.getVariables();
-            Map<String, Double> parentValues = new HashMap<>();
+            List<MyJsonCptParentAssignment> parentAssignments = new ArrayList<>();
             for(Variable parent: parents){
-                parentValues.put(parent.getVarID()+ "", parentAssignment.getValue(parent));
+                parentAssignments.add(new MyJsonCptParentAssignment(parent.getVarID()+ "", parentAssignment.getValue(parent)));
             }
-            parentValuesList.add(parentValues);
+            RowParentAssignments.add(parentAssignments);
         }
 
-        // Rows: Parameter values
-        List<Map<String, Double>> parameterValuesList = new ArrayList<>();
+        // Rows: Parameters
+        List<List<MyJsonCptParameter>> RowParameters = new ArrayList<>();
         for(Multinomial multinomialDist: dist.getMultinomialDistributions()){
             int i = 1;
-            Map<String, Double> value = new HashMap<>();
+            List<MyJsonCptParameter> paramsList = new ArrayList<>();
             for(double prob: multinomialDist.getParameters()){
-                value.put("s"+i,prob);
+                paramsList.add(new MyJsonCptParameter("s"+i,prob));
                 i++;
             }
-            parameterValuesList.add(value);
+            RowParameters.add(paramsList);
         }
 
         // Create the rows
-        for(int i = 0; i < parameterValuesList.size(); i++)
-            this.rows.add(new MyJsonCptRow(parameterValuesList.get(i), parentValuesList.get(i)));
+        for(int i = 0; i < RowParameters.size(); i++)
+            this.rows.add(new MyJsonCptRow(RowParameters.get(i), RowParentAssignments.get(i)));
     }
 }

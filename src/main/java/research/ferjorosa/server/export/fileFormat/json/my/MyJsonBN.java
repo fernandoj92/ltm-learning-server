@@ -3,6 +3,7 @@ package research.ferjorosa.server.export.fileFormat.json.my;
 import com.google.gson.annotations.SerializedName;
 import eu.amidst.core.models.BayesianNetwork;
 import eu.amidst.core.variables.Variable;
+import research.ferjorosa.server.export.fileFormat.json.JsonBN;
 import research.ferjorosa.server.export.fileFormat.json.my.cpt.JsonCPT;
 import research.ferjorosa.server.export.fileFormat.json.my.cpt.MyJsonCptFactory;
 import research.ferjorosa.server.export.fileFormat.json.my.dag.MyJsonDAG;
@@ -13,7 +14,7 @@ import java.util.List;
 /**
  * Created by fernando on 20/09/16.
  */
-public class MyJsonBN {
+public class MyJsonBN implements JsonBN{
 
     @SerializedName("dag")
     private MyJsonDAG myJsonDAG;

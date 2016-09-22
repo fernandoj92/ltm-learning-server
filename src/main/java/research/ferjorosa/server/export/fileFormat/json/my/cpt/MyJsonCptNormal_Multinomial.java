@@ -31,33 +31,33 @@ class MyJsonCptNormal_Multinomial extends AbstractJsonCPT {
         }
         // Rows
 
-        // Rows: Parent values
-        List<Map<String, Double>> parentValuesList = new ArrayList<>();
+        // Rows: Parent assignments
+        List<List<MyJsonCptParentAssignment>> parentValuesList = new ArrayList<>();
         for(int i=0;i<dist.getNumberOfParentAssignments();i++) {
             Assignment parentAssignment = MultinomialIndex.
                     getVariableAssignmentFromIndex(dist.getConditioningVariables(), i);
 
             Set<Variable> parents = parentAssignment.getVariables();
-            Map<String, Double> parentValues = new HashMap<>();
+            List<MyJsonCptParentAssignment> parentValues = new ArrayList<>();
             for(Variable parent: parents){
-                parentValues.put(parent.getVarID()+ "", parentAssignment.getValue(parent));
+                parentValues.add(new MyJsonCptParentAssignment(parent.getVarID()+ "", parentAssignment.getValue(parent)));
             }
             parentValuesList.add(parentValues);
         }
 
-        // Rows: Parameter values
-        List<Map<String, Double>> parameterValuesList = new ArrayList<>();
+        // Rows: Parameters
+        List<List<MyJsonCptParameter>> parameterValuesList = new ArrayList<>();
         for(Normal normalDist: dist.getNormalDistributions()){
             int i = 1;
 
             // New row's parameter values
-            Map<String, Double> paramValues = new HashMap<>();
+            List<MyJsonCptParameter> paramValues = new ArrayList<>();
             for(double value: normalDist.getParameters()){
                 if(i == 1) {
-                    paramValues.put("mu", value);
+                    paramValues.add(new MyJsonCptParameter("mu", value));
                     i++;
                 }else
-                    paramValues.put("var", value);
+                    paramValues.add(new MyJsonCptParameter("var", value));
             }
             parameterValuesList.add(paramValues);
         }

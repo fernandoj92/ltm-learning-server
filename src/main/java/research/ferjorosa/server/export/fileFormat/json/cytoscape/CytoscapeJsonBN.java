@@ -4,6 +4,8 @@ import eu.amidst.core.models.BayesianNetwork;
 import eu.amidst.core.models.DAG;
 import eu.amidst.core.models.ParentSet;
 import eu.amidst.core.variables.Variable;
+import research.ferjorosa.examples.export.JsonBnExample;
+import research.ferjorosa.server.export.fileFormat.json.JsonBN;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +13,7 @@ import java.util.List;
 /**
  * Created by Fernando on 27/08/2016.
  */
-public class CytoscapeJsonBN {
+public class CytoscapeJsonBN implements JsonBN {
 
     private Elements elements;
 

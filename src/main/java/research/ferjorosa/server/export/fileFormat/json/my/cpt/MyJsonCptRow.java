@@ -1,19 +1,21 @@
 package research.ferjorosa.server.export.fileFormat.json.my.cpt;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 /**
  * Created by fernando on 22/09/16.
  */
 class MyJsonCptRow {
 
-    private Map<String, Double> parameterValues = new HashMap<>();
+    private List<MyJsonCptParameter> parameters;
 
-    private Map<String, Double> parentValues = new HashMap<>();
+    private List<MyJsonCptParentAssignment> parentAssignments;
 
-    MyJsonCptRow(Map<String, Double> parameterValues, Map<String, Double> parentValues){
-        this.parameterValues = parameterValues;
-        this.parentValues = parentValues;
+    MyJsonCptRow(List<MyJsonCptParameter> parameters, List<MyJsonCptParentAssignment> parentAssignments){
+        this.parameters = parameters;
+        this.parentAssignments = parentAssignments;
     }
+
+
+
 }

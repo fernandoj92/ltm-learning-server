@@ -5,7 +5,9 @@ import eu.amidst.core.variables.Variable;
 import research.ferjorosa.server.export.fileFormat.json.my.cpt.AbstractJsonCPT;
 import research.ferjorosa.server.export.fileFormat.json.my.cpt.MyJsonCptRow;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -23,13 +25,13 @@ class MyJsonCptMultinomial extends AbstractJsonCPT {
 
         // Rows
         int i = 1;
-        Map<String, Double> paramValues = new HashMap<>();
+        List<MyJsonCptParameter> params= new ArrayList<>();
         for(double prob: dist.getParameters()){
-            paramValues.put("s"+i,prob);
+            params.add(new MyJsonCptParameter("s"+i, prob));
             i++;
         }
-        // No parents
-        this.rows.add(new MyJsonCptRow(paramValues, new HashMap<>()));
+        //                                No parents
+        this.rows.add(new MyJsonCptRow(params, null));
     }
 
 
