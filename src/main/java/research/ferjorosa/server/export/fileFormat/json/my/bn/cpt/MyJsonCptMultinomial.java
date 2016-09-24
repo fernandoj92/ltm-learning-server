@@ -1,14 +1,10 @@
-package research.ferjorosa.server.export.fileFormat.json.my.cpt;
+package research.ferjorosa.server.export.fileFormat.json.my.bn.cpt;
 
 import eu.amidst.core.distribution.Multinomial;
 import eu.amidst.core.variables.Variable;
-import research.ferjorosa.server.export.fileFormat.json.my.cpt.AbstractJsonCPT;
-import research.ferjorosa.server.export.fileFormat.json.my.cpt.MyJsonCptRow;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by fernando on 21/09/16.

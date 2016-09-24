@@ -1,4 +1,4 @@
-package research.ferjorosa.server.export.fileFormat.json.my.cpt;
+package research.ferjorosa.server.export.fileFormat.json.my.bn.cpt;
 
 import eu.amidst.core.distribution.ConditionalDistribution;
 import eu.amidst.core.distribution.Multinomial;

@@ -8,7 +8,7 @@ import eu.amidst.core.models.DAG;
 import eu.amidst.core.variables.Variable;
 import eu.amidst.core.variables.Variables;
 import research.ferjorosa.server.export.BayesianNetworkLocalExporter;
-import research.ferjorosa.server.export.fileFormat.ConvertBN;
+import research.ferjorosa.server.export.fileFormat.json.JsonExporter;
 
 /**
  * Created by fernando on 22/09/16.
@@ -31,7 +31,7 @@ public class JsonExample {
         System.out.println(bnModel.toString());
 
         // We print the json model
-        String JsonBnModel = ConvertBN.toMyJson(bnModel,true);
+        String JsonBnModel = JsonExporter.toMyJson(bnModel,true);
         System.out.println(JsonBnModel);
         BayesianNetworkLocalExporter
                 .writeJsonFile(JsonBnModel, System.getProperty("user.dir") + "/data/myJsonTest2.json");

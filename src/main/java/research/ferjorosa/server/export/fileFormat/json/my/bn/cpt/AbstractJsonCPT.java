@@ -1,8 +1,7 @@
-package research.ferjorosa.server.export.fileFormat.json.my.cpt;
+package research.ferjorosa.server.export.fileFormat.json.my.bn.cpt;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by fernando on 21/09/16.

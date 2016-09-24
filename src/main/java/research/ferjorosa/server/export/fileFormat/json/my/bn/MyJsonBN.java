@@ -1,12 +1,11 @@
-package research.ferjorosa.server.export.fileFormat.json.my;
+package research.ferjorosa.server.export.fileFormat.json.my.bn;
 
 import com.google.gson.annotations.SerializedName;
 import eu.amidst.core.models.BayesianNetwork;
 import eu.amidst.core.variables.Variable;
-import research.ferjorosa.server.export.fileFormat.json.JsonBN;
-import research.ferjorosa.server.export.fileFormat.json.my.cpt.JsonCPT;
-import research.ferjorosa.server.export.fileFormat.json.my.cpt.MyJsonCptFactory;
-import research.ferjorosa.server.export.fileFormat.json.my.dag.MyJsonDAG;
+import research.ferjorosa.server.export.fileFormat.json.my.bn.cpt.JsonCPT;
+import research.ferjorosa.server.export.fileFormat.json.my.bn.cpt.MyJsonCptFactory;
+import research.ferjorosa.server.export.fileFormat.json.my.bn.dag.MyJsonDAG;
 
 import java.util.ArrayList;
 import java.util.List;

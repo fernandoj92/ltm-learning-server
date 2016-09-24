@@ -1,4 +1,4 @@
-package research.ferjorosa.server.export.fileFormat.json.my.dag;
+package research.ferjorosa.server.export.fileFormat.json.my.bn.dag;
 
 import com.google.gson.annotations.SerializedName;
 import eu.amidst.core.models.DAG;

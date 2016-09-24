@@ -1,0 +1,251 @@
+{
+  "bayesianNetwork": {
+    "dag": {
+      "nodes": [
+        {
+          "id": "0",
+          "name": "cloudy"
+        },
+        {
+          "id": "1",
+          "name": "sprinkler"
+        },
+        {
+          "id": "2",
+          "name": "rain"
+        },
+        {
+          "id": "3",
+          "name": "wetGrass"
+        }
+      ],
+      "edges": [
+        {
+          "source": "1",
+          "target": "0"
+        },
+        {
+          "source": "2",
+          "target": "0"
+        },
+        {
+          "source": "3",
+          "target": "1"
+        },
+        {
+          "source": "3",
+          "target": "2"
+        }
+      ]
+    },
+    "cpts": [
+      {
+        "label": "Multinomial",
+        "variableID": "0",
+        "parentIDs": [],
+        "rows": [
+          {
+            "parameters": [
+              {
+                "parameter": "s1",
+                "value": 0.5
+              },
+              {
+                "parameter": "s2",
+                "value": 0.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Multinomial|Multinomial",
+        "variableID": "1",
+        "parentIDs": [
+          "0"
+        ],
+        "rows": [
+          {
+            "parameters": [
+              {
+                "parameter": "s1",
+                "value": 0.5
+              },
+              {
+                "parameter": "s2",
+                "value": 0.5
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "0",
+                "value": 0.0
+              }
+            ]
+          },
+          {
+            "parameters": [
+              {
+                "parameter": "s1",
+                "value": 0.5
+              },
+              {
+                "parameter": "s2",
+                "value": 0.5
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "0",
+                "value": 1.0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Multinomial|Multinomial",
+        "variableID": "2",
+        "parentIDs": [
+          "0"
+        ],
+        "rows": [
+          {
+            "parameters": [
+              {
+                "parameter": "s1",
+                "value": 0.5
+              },
+              {
+                "parameter": "s2",
+                "value": 0.5
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "0",
+                "value": 0.0
+              }
+            ]
+          },
+          {
+            "parameters": [
+              {
+                "parameter": "s1",
+                "value": 0.5
+              },
+              {
+                "parameter": "s2",
+                "value": 0.5
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "0",
+                "value": 1.0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Multinomial|Multinomial",
+        "variableID": "3",
+        "parentIDs": [
+          "1",
+          "2"
+        ],
+        "rows": [
+          {
+            "parameters": [
+              {
+                "parameter": "s1",
+                "value": 0.5
+              },
+              {
+                "parameter": "s2",
+                "value": 0.5
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "1",
+                "value": 0.0
+              },
+              {
+                "parent": "2",
+                "value": 0.0
+              }
+            ]
+          },
+          {
+            "parameters": [
+              {
+                "parameter": "s1",
+                "value": 0.5
+              },
+              {
+                "parameter": "s2",
+                "value": 0.5
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "1",
+                "value": 1.0
+              },
+              {
+                "parent": "2",
+                "value": 0.0
+              }
+            ]
+          },
+          {
+            "parameters": [
+              {
+                "parameter": "s1",
+                "value": 0.5
+              },
+              {
+                "parameter": "s2",
+                "value": 0.5
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "1",
+                "value": 0.0
+              },
+              {
+                "parent": "2",
+                "value": 1.0
+              }
+            ]
+          },
+          {
+            "parameters": [
+              {
+                "parameter": "s1",
+                "value": 0.5
+              },
+              {
+                "parameter": "s2",
+                "value": 0.5
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "1",
+                "value": 1.0
+              },
+              {
+                "parent": "2",
+                "value": 1.0
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

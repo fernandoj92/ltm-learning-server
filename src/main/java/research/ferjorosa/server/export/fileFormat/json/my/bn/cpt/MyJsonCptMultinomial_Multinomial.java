@@ -1,12 +1,10 @@
-package research.ferjorosa.server.export.fileFormat.json.my.cpt;
+package research.ferjorosa.server.export.fileFormat.json.my.bn.cpt;
 
 import eu.amidst.core.distribution.Multinomial;
 import eu.amidst.core.distribution.Multinomial_MultinomialParents;
 import eu.amidst.core.utils.MultinomialIndex;
 import eu.amidst.core.variables.Assignment;
 import eu.amidst.core.variables.Variable;
-import research.ferjorosa.server.export.fileFormat.json.my.cpt.AbstractJsonCPT;
-import research.ferjorosa.server.export.fileFormat.json.my.cpt.MyJsonCptRow;
 
 import java.util.*;
 

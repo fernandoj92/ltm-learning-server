@@ -1,4 +1,4 @@
-package research.ferjorosa.server.export.fileFormat.json.my.cpt;
+package research.ferjorosa.server.export.fileFormat.json.my.bn.cpt;
 
 import java.util.List;
 

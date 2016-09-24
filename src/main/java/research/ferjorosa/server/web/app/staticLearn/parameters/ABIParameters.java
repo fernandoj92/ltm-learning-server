@@ -1,6 +1,7 @@
 package research.ferjorosa.server.web.app.staticLearn.parameters;
 
-import research.ferjorosa.core.learning.structural.variables.FSSMeasures;
+
+import research.ferjorosa.core.learning.normal.structural.variables.FSSMeasures;
 
 /**
  * Created by fernando on 5/09/16.

@@ -4,8 +4,7 @@ import eu.amidst.core.models.BayesianNetwork;
 import eu.amidst.core.models.DAG;
 import eu.amidst.core.models.ParentSet;
 import eu.amidst.core.variables.Variable;
-import research.ferjorosa.examples.export.JsonBnExample;
-import research.ferjorosa.server.export.fileFormat.json.JsonBN;
+import research.ferjorosa.server.export.fileFormat.json.my.bn.JsonBN;
 
 import java.util.ArrayList;
 import java.util.List;
