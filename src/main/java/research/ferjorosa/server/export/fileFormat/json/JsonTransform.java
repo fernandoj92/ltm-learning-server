@@ -12,7 +12,7 @@ import research.ferjorosa.server.export.fileFormat.json.my.bn.MyJsonBN;
 /**
  * Created by Fernando on 27/08/2016.
  */
-public class JsonExporter {
+public class JsonTransform {
 
     public static String toCytoscapeJson(BayesianNetwork bayesianNetwork, boolean prettyPrinting){
         Gson gson;

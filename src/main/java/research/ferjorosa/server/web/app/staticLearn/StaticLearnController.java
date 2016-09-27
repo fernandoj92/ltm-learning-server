@@ -6,13 +6,14 @@ import eu.amidst.core.datastream.DataInstance;
 import eu.amidst.core.datastream.DataOnMemory;
 import eu.amidst.core.datastream.DataStream;
 import eu.amidst.core.learning.parametric.bayesian.SVB;
+import research.ferjorosa.core.learning.normal.StaticLearningAlgorithm;
 import research.ferjorosa.core.learning.normal.structural.ABI;
 import research.ferjorosa.core.learning.normal.structural.ABIConfig;
 import research.ferjorosa.core.learning.normal.structural.StructuralLearning;
 import research.ferjorosa.core.learning.normal.structural.variables.FSSMeasureFactory;
 import research.ferjorosa.core.models.LTM;
 
-import research.ferjorosa.server.export.fileFormat.json.JsonExporter;
+import research.ferjorosa.server.export.fileFormat.json.JsonTransform;
 import research.ferjorosa.server.web.app.localData.LocalDataService;
 import research.ferjorosa.server.web.app.staticLearn.parameters.ABIParameters;
 import spark.Request;
@@ -43,15 +44,15 @@ public class StaticLearnController {
             ABIConfig approximateBIConfig = new ABIConfig(params.getMaxIslandSize(), params.getBaseLvCardinality(), params.getUdTestThreshold());
             // Llamamos al metodo pasandole los parametros
             SVB parameterLearningAlgorithm = new SVB();
-            StructuralLearning structuralLearningAlgorithm = new ABI(approximateBIConfig, parameterLearningAlgorithm, FSSMeasureFactory.retrieveInstance(params.getFssMeasure()));
+            StaticLearningAlgorithm staticLearningAlgorithm = new ABI(approximateBIConfig, parameterLearningAlgorithm, FSSMeasureFactory.retrieveInstance(params.getFssMeasure()));
             // Devolvemos una respuesta en formato JSON conteniendo la BN
             LTM learntModel = null;
             DataStream<DataInstance> data = LocalDataService.openDataFile(params.getDataFileName());
             for (DataOnMemory<DataInstance> batch : data.iterableOverBatches(params.getBatchSize())) {
-                learntModel = structuralLearningAlgorithm.learnModel(batch);
+                learntModel = staticLearningAlgorithm.learnModel(batch);
             }
             //Return the BN in Json format
-            return JsonExporter.toCytoscapeJson(learntModel.getLearntBayesianNetwork(), false);
+            return JsonTransform.toCytoscapeJson(learntModel.getLearntBayesianNetwork(), false);
 
         }catch(JsonParseException jpe){
             response.status(HTTP_BAD_REQUEST);
