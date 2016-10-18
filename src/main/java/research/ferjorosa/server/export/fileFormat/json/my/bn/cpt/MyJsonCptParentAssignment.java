@@ -8,11 +8,11 @@ class MyJsonCptParentAssignment {
 
     private String parent;
 
-    private Double value;
+    private String value;
 
     MyJsonCptParentAssignment(){}
 
-    MyJsonCptParentAssignment(String parent, Double value){
+    MyJsonCptParentAssignment(String parent, String value){
         this.parent = parent;
         this.value = value;
     }

@@ -37,7 +37,8 @@ class MyJsonCptNormal_Multinomial extends AbstractJsonCPT {
             Set<Variable> parents = parentAssignment.getVariables();
             List<MyJsonCptParentAssignment> parentValues = new ArrayList<>();
             for(Variable parent: parents){
-                parentValues.add(new MyJsonCptParentAssignment(parent.getVarID()+ "", parentAssignment.getValue(parent)));
+                //                                                                         s0, s1, s2...
+                parentValues.add(new MyJsonCptParentAssignment(parent.getVarID()+ "",  "s" + (int) parentAssignment.getValue(parent)));
             }
             parentValuesList.add(parentValues);
         }
@@ -45,12 +46,12 @@ class MyJsonCptNormal_Multinomial extends AbstractJsonCPT {
         // Rows: Parameters
         List<List<MyJsonCptParameter>> parameterValuesList = new ArrayList<>();
         for(Normal normalDist: dist.getNormalDistributions()){
-            int i = 1;
+            int i = 0;
 
             // New row's parameter values
             List<MyJsonCptParameter> paramValues = new ArrayList<>();
             for(double value: normalDist.getParameters()){
-                if(i == 1) {
+                if(i == 0) {
                     paramValues.add(new MyJsonCptParameter("mu", value));
                     i++;
                 }else

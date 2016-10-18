@@ -36,7 +36,8 @@ class MyJsonCptMultinomial_Multinomial extends AbstractJsonCPT {
             Set<Variable> parents = parentAssignment.getVariables();
             List<MyJsonCptParentAssignment> parentAssignments = new ArrayList<>();
             for(Variable parent: parents){
-                parentAssignments.add(new MyJsonCptParentAssignment(parent.getVarID()+ "", parentAssignment.getValue(parent)));
+                //                                                                         s0, s1, s2...
+                parentAssignments.add(new MyJsonCptParentAssignment(parent.getVarID()+ "", "s" + (int) parentAssignment.getValue(parent)));
             }
             RowParentAssignments.add(parentAssignments);
         }
@@ -44,7 +45,7 @@ class MyJsonCptMultinomial_Multinomial extends AbstractJsonCPT {
         // Rows: Parameters
         List<List<MyJsonCptParameter>> RowParameters = new ArrayList<>();
         for(Multinomial multinomialDist: dist.getMultinomialDistributions()){
-            int i = 1;
+            int i = 0;
             List<MyJsonCptParameter> paramsList = new ArrayList<>();
             for(double prob: multinomialDist.getParameters()){
                 paramsList.add(new MyJsonCptParameter("s"+i,prob));

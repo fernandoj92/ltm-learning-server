@@ -1,0 +1,516 @@
+{
+  "bayesianNetwork": {
+    "dag": {
+      "nodes": [
+        {
+          "id": "0",
+          "name": "vVisitToAsia"
+        },
+        {
+          "id": "1",
+          "name": "vTuberculosis"
+        },
+        {
+          "id": "2",
+          "name": "vSmoking"
+        },
+        {
+          "id": "3",
+          "name": "vLungCancer"
+        },
+        {
+          "id": "4",
+          "name": "vTbOrCa"
+        },
+        {
+          "id": "5",
+          "name": "vXRay"
+        },
+        {
+          "id": "6",
+          "name": "vBronchitis"
+        },
+        {
+          "id": "7",
+          "name": "vDyspnea"
+        },
+        {
+          "id": "8",
+          "name": "H0"
+        },
+        {
+          "id": "9",
+          "name": "H1"
+        }
+      ],
+      "edges": [
+        {
+          "source": "9",
+          "target": "0"
+        },
+        {
+          "source": "9",
+          "target": "1"
+        },
+        {
+          "source": "9",
+          "target": "2"
+        },
+        {
+          "source": "9",
+          "target": "3"
+        },
+        {
+          "source": "8",
+          "target": "4"
+        },
+        {
+          "source": "9",
+          "target": "5"
+        },
+        {
+          "source": "8",
+          "target": "6"
+        },
+        {
+          "source": "8",
+          "target": "7"
+        },
+        {
+          "source": "9",
+          "target": "8"
+        }
+      ]
+    },
+    "cpts": [
+      {
+        "label": "Multinomial|Multinomial",
+        "variableID": "0",
+        "parentIDs": [
+          "9"
+        ],
+        "rows": [
+          {
+            "parameters": [
+              {
+                "parameter": "s0",
+                "value": 0.737456234042943
+              },
+              {
+                "parameter": "s1",
+                "value": 0.26254376595705703
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "9",
+                "value": "s0"
+              }
+            ]
+          },
+          {
+            "parameters": [
+              {
+                "parameter": "s0",
+                "value": 0.9701179608918045
+              },
+              {
+                "parameter": "s1",
+                "value": 0.029882039108195556
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "9",
+                "value": "s1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Multinomial|Multinomial",
+        "variableID": "1",
+        "parentIDs": [
+          "9"
+        ],
+        "rows": [
+          {
+            "parameters": [
+              {
+                "parameter": "s0",
+                "value": 0.6083033358406288
+              },
+              {
+                "parameter": "s1",
+                "value": 0.39169666415937127
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "9",
+                "value": "s0"
+              }
+            ]
+          },
+          {
+            "parameters": [
+              {
+                "parameter": "s0",
+                "value": 0.9799213074512212
+              },
+              {
+                "parameter": "s1",
+                "value": 0.02007869254877886
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "9",
+                "value": "s1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Multinomial|Multinomial",
+        "variableID": "2",
+        "parentIDs": [
+          "9"
+        ],
+        "rows": [
+          {
+            "parameters": [
+              {
+                "parameter": "s0",
+                "value": 0.27738132799325727
+              },
+              {
+                "parameter": "s1",
+                "value": 0.7226186720067427
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "9",
+                "value": "s0"
+              }
+            ]
+          },
+          {
+            "parameters": [
+              {
+                "parameter": "s0",
+                "value": 0.5766703612985862
+              },
+              {
+                "parameter": "s1",
+                "value": 0.4233296387014138
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "9",
+                "value": "s1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Multinomial|Multinomial",
+        "variableID": "3",
+        "parentIDs": [
+          "9"
+        ],
+        "rows": [
+          {
+            "parameters": [
+              {
+                "parameter": "s0",
+                "value": 0.476710796692702
+              },
+              {
+                "parameter": "s1",
+                "value": 0.523289203307298
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "9",
+                "value": "s0"
+              }
+            ]
+          },
+          {
+            "parameters": [
+              {
+                "parameter": "s0",
+                "value": 0.979947751843924
+              },
+              {
+                "parameter": "s1",
+                "value": 0.020052248156075963
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "9",
+                "value": "s1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Multinomial|Multinomial",
+        "variableID": "4",
+        "parentIDs": [
+          "8"
+        ],
+        "rows": [
+          {
+            "parameters": [
+              {
+                "parameter": "s0",
+                "value": 0.9705827493291125
+              },
+              {
+                "parameter": "s1",
+                "value": 0.029417250670887567
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "8",
+                "value": "s0"
+              }
+            ]
+          },
+          {
+            "parameters": [
+              {
+                "parameter": "s0",
+                "value": 0.8750221680132984
+              },
+              {
+                "parameter": "s1",
+                "value": 0.12497783198670175
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "8",
+                "value": "s1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Multinomial|Multinomial",
+        "variableID": "5",
+        "parentIDs": [
+          "9"
+        ],
+        "rows": [
+          {
+            "parameters": [
+              {
+                "parameter": "s0",
+                "value": 0.2765959014486883
+              },
+              {
+                "parameter": "s1",
+                "value": 0.7234040985513118
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "9",
+                "value": "s0"
+              }
+            ]
+          },
+          {
+            "parameters": [
+              {
+                "parameter": "s0",
+                "value": 0.9453270513240869
+              },
+              {
+                "parameter": "s1",
+                "value": 0.05467294867591311
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "9",
+                "value": "s1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Multinomial|Multinomial",
+        "variableID": "6",
+        "parentIDs": [
+          "8"
+        ],
+        "rows": [
+          {
+            "parameters": [
+              {
+                "parameter": "s0",
+                "value": 0.8420920155106819
+              },
+              {
+                "parameter": "s1",
+                "value": 0.15790798448931798
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "8",
+                "value": "s0"
+              }
+            ]
+          },
+          {
+            "parameters": [
+              {
+                "parameter": "s0",
+                "value": 0.06854752611719678
+              },
+              {
+                "parameter": "s1",
+                "value": 0.9314524738828032
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "8",
+                "value": "s1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Multinomial|Multinomial",
+        "variableID": "7",
+        "parentIDs": [
+          "8"
+        ],
+        "rows": [
+          {
+            "parameters": [
+              {
+                "parameter": "s0",
+                "value": 0.9462380577898523
+              },
+              {
+                "parameter": "s1",
+                "value": 0.05376194221014779
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "8",
+                "value": "s0"
+              }
+            ]
+          },
+          {
+            "parameters": [
+              {
+                "parameter": "s0",
+                "value": 0.09151016404387635
+              },
+              {
+                "parameter": "s1",
+                "value": 0.9084898359561238
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "8",
+                "value": "s1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Multinomial|Multinomial",
+        "variableID": "8",
+        "parentIDs": [
+          "9"
+        ],
+        "rows": [
+          {
+            "parameters": [
+              {
+                "parameter": "s0",
+                "value": 0.266724746267366
+              },
+              {
+                "parameter": "s1",
+                "value": 0.733275253732634
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "9",
+                "value": "s0"
+              }
+            ]
+          },
+          {
+            "parameters": [
+              {
+                "parameter": "s0",
+                "value": 0.6571223630284588
+              },
+              {
+                "parameter": "s1",
+                "value": 0.34287763697154117
+              }
+            ],
+            "parentAssignments": [
+              {
+                "parent": "9",
+                "value": "s1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Multinomial",
+        "variableID": "9",
+        "parentIDs": [],
+        "rows": [
+          {
+            "parameters": [
+              {
+                "parameter": "s0",
+                "value": 0.05403256893456385
+              },
+              {
+                "parameter": "s1",
+                "value": 0.9459674310654361
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "algorithm": "Approximate Bridged Islands",
+  "index": 0,
+  "nanoStart": 1.476799718096E12,
+  "nanoFinish": 1.476799721198E12
+}

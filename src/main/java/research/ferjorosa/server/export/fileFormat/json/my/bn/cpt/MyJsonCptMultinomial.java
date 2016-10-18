@@ -20,7 +20,7 @@ class MyJsonCptMultinomial extends AbstractJsonCPT {
         this.label = dist.label();
 
         // Rows
-        int i = 1;
+        int i = 0;
         List<MyJsonCptParameter> params= new ArrayList<>();
         for(double prob: dist.getParameters()){
             params.add(new MyJsonCptParameter("s"+i, prob));

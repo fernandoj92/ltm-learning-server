@@ -26,7 +26,7 @@ public class JsonAsiaExample {
             ExecutionResult result = staticLearningAlgorithm.execute(batch);
             String jsonResult = JsonTransform.toMyJson(result, true);
             LocalFileExporter
-                    .writeJsonFile(jsonResult, System.getProperty("user.dir") + "/results/myJsonResult1.json");
+                    .writeJsonFile(jsonResult, System.getProperty("user.dir") + "/results/asiaTestNewCpt.json");
         }
 
     }

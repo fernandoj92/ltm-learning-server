@@ -27,7 +27,7 @@ public class MyJsonDAG {
 
         for(ParentSet parent : dag.getParentSets()){
             for(Variable var : parent.getParents())
-                edges.add(new MyJsonEdge(parent.getMainVar().getVarID()+"",var.getVarID()+""));
+                edges.add(new MyJsonEdge(var.getVarID()+"", parent.getMainVar().getVarID()+""));
         }
     }
 }
