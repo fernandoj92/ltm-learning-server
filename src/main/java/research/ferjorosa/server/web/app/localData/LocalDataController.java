@@ -14,8 +14,8 @@ import java.util.List;
 public class LocalDataController {
 
     public static Route listLocalFiles = (Request request, Response response) -> {
-        List<String> localFiles = LocalDataService.listDataFiles();
+        List<String> localDataFileNames = LocalDataService.listDataFiles();
         Gson gson = new GsonBuilder().create();
-        return gson.toJson(localFiles);
+        return gson.toJson(localDataFileNames);
     };
 }

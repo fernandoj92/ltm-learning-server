@@ -1,6 +1,7 @@
 package research.ferjorosa.server.web.app.staticLearn;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
 import eu.amidst.core.datastream.DataInstance;
 import eu.amidst.core.datastream.DataOnMemory;
@@ -11,6 +12,7 @@ import research.ferjorosa.core.learning.normal.structural.ABI;
 import research.ferjorosa.core.learning.normal.structural.ABIConfig;
 import research.ferjorosa.core.learning.normal.structural.StructuralLearning;
 import research.ferjorosa.core.learning.normal.structural.variables.FSSMeasureFactory;
+import research.ferjorosa.core.learning.normal.structural.variables.FSSMeasures;
 import research.ferjorosa.core.models.LTM;
 
 import research.ferjorosa.server.export.fileFormat.json.JsonTransform;
@@ -19,6 +21,9 @@ import research.ferjorosa.server.web.app.staticLearn.parameters.ABIParameters;
 import spark.Request;
 import spark.Response;
 import spark.Route;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static java.net.HttpURLConnection.HTTP_BAD_REQUEST;
 import static java.net.HttpURLConnection.HTTP_INTERNAL_ERROR;
@@ -61,5 +66,14 @@ public class StaticLearnController {
             response.status(HTTP_INTERNAL_ERROR);
             return "Server Error";
         }
+    };
+
+    public static Route listFssMeasures = (Request request, Response response) -> {
+        Gson gson = new GsonBuilder().create();
+        System.out.println(FSSMeasures.MUTUAL_INFORMATION);
+        List<String> fssMeasures = new ArrayList<String>(FSSMeasures.values().length);
+        for(FSSMeasures fssMeasure : FSSMeasures.values())
+            fssMeasures.add(fssMeasure.toString());
+        return gson.toJson(fssMeasures);
     };
 }

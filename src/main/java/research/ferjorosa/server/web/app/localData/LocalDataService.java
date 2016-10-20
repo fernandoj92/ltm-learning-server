@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  */
 public class LocalDataService {
 
-    private static String baseDataPath = "ltmlearning-web/data/";
+    private static String baseDataPath = "data/";
 
     public static DataStream<DataInstance> openDataFile(String fileName){
         return DataStreamLoader.open(baseDataPath+fileName);

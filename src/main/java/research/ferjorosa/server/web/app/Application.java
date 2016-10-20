@@ -28,8 +28,9 @@ public class Application {
         get("/lol", (req,response)-> "LOL");
 
 
-        get("/listLocalFiles",          LocalDataController.listLocalFiles);
-        post("/learn/flatLTM",          StaticLearnController.learnFlatLtmABI);
+        get("/listLocalDataFiles",      LocalDataController.listLocalFiles);
+        get("/listFssMeasures",         StaticLearnController.listFssMeasures);
+        post("/learn/flatLTM/ABI",      StaticLearnController.learnFlatLtmABI);
         get("/testMessage/:id",         testWsController.testMessage);
         get("/testMessageAll",          testWsController.testMessageAll);
         get("/listActiveConnections",   testWsController.listActiveConnections);
