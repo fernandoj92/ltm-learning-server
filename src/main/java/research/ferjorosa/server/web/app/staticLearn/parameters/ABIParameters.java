@@ -14,11 +14,11 @@ public class ABIParameters {
 
     private Integer baseLvCardinality;
 
-    private Integer udTestThreshold;
+    private Double udTestThreshold;
 
     private Integer batchSize;
 
-    private String dataFileName;
+    private String selectedFile;
 
     public String getFssMeasure() {
         return fssMeasure;
@@ -32,7 +32,7 @@ public class ABIParameters {
         return baseLvCardinality;
     }
 
-    public Integer getUdTestThreshold() {
+    public Double getUdTestThreshold() {
         return udTestThreshold;
     }
 
@@ -40,8 +40,8 @@ public class ABIParameters {
         return batchSize;
     }
 
-    public String getDataFileName(){
-        return dataFileName;
+    public String getSelectedFile(){
+        return selectedFile;
     }
 
     public boolean isValid(){
@@ -51,8 +51,8 @@ public class ABIParameters {
                 udTestThreshold != null &&
                 batchSize != null &&
                 batchSize != 0 &&
-                dataFileName != null &&
-                !dataFileName.isEmpty();
+                selectedFile != null &&
+                !selectedFile.isEmpty();
     }
 
     private boolean validate(String fssMeasure){

@@ -7,10 +7,10 @@ import eu.amidst.core.datastream.DataInstance;
 import eu.amidst.core.datastream.DataOnMemory;
 import eu.amidst.core.datastream.DataStream;
 import eu.amidst.core.learning.parametric.bayesian.SVB;
+import research.ferjorosa.core.execution.ExecutionResult;
 import research.ferjorosa.core.learning.normal.StaticLearningAlgorithm;
 import research.ferjorosa.core.learning.normal.structural.ABI;
 import research.ferjorosa.core.learning.normal.structural.ABIConfig;
-import research.ferjorosa.core.learning.normal.structural.StructuralLearning;
 import research.ferjorosa.core.learning.normal.structural.variables.FSSMeasureFactory;
 import research.ferjorosa.core.learning.normal.structural.variables.FSSMeasures;
 import research.ferjorosa.core.models.LTM;
@@ -36,6 +36,9 @@ public class StaticLearnController {
 
     public static Route learnFlatLtmABI = (Request request, Response response) -> {
         try {
+
+            System.out.println("learnFlatLtmABI");
+
             String algorithmParameters = request.body();
             Gson gson = new Gson();
             ABIParameters params = gson.fromJson(algorithmParameters, ABIParameters.class);
@@ -51,13 +54,16 @@ public class StaticLearnController {
             SVB parameterLearningAlgorithm = new SVB();
             StaticLearningAlgorithm staticLearningAlgorithm = new ABI(approximateBIConfig, parameterLearningAlgorithm, FSSMeasureFactory.retrieveInstance(params.getFssMeasure()));
             // Devolvemos una respuesta en formato JSON conteniendo la BN
-            LTM learntModel = null;
-            DataStream<DataInstance> data = LocalDataService.openDataFile(params.getDataFileName());
+            ExecutionResult result = null;
+            DataStream<DataInstance> data = LocalDataService.openDataFile(params.getSelectedFile());
             for (DataOnMemory<DataInstance> batch : data.iterableOverBatches(params.getBatchSize())) {
-                learntModel = staticLearningAlgorithm.learnModel(batch);
+                result = staticLearningAlgorithm.execute(batch);
             }
+
+            System.out.println(result.toString());
+
             //Return the BN in Json format
-            return JsonTransform.toCytoscapeJson(learntModel.getLearntBayesianNetwork(), false);
+            return JsonTransform.toMyJson(result, false);
 
         }catch(JsonParseException jpe){
             response.status(HTTP_BAD_REQUEST);
@@ -70,7 +76,6 @@ public class StaticLearnController {
 
     public static Route listFssMeasures = (Request request, Response response) -> {
         Gson gson = new GsonBuilder().create();
-        System.out.println(FSSMeasures.MUTUAL_INFORMATION);
         List<String> fssMeasures = new ArrayList<String>(FSSMeasures.values().length);
         for(FSSMeasures fssMeasure : FSSMeasures.values())
             fssMeasures.add(fssMeasure.toString());
